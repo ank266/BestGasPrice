@@ -13,8 +13,8 @@ load_dotenv()
 GOOGLE_API_KEY = os.getenv('GOOGLE_API_KEY')
 api_key = GOOGLE_API_KEY
 
-city = "regina"
-origin = "3178 brock bay regina, SK"
+city = ""
+origin = ""
 weight_price = 0.5
 weight_distance = 0.0
 weight_time = 0.5
