@@ -40,10 +40,9 @@ locations = clean_up_array_from_errors(locations)
 
 print("Done getting maps value, now filtering...")
 sorted_data = sorted(locations, key=lambda x: x['duration'])
-# filtered_locations = [duration for duration in sorted_data if duration['duration'] < 15]
 best_locations = filter_get_best_locations_by_duration(sorted_data)
 best_locations = apply_points(best_locations)
 best_locations = filter_eliminate_high_price_repeats_that_are_far_away(best_locations)
-best_locations = sort_based_on_weights(weight_price, weight_distance, weight_time, best_locations)
+best_locations = filter_sort_based_on_weights(weight_price, weight_distance, weight_time, best_locations)
 best_locations = filter_by_quartile_values(best_locations, 40, 'price')
 print(best_locations)

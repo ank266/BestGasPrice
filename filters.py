@@ -39,16 +39,19 @@ def filter_eliminate_high_price_repeats_that_are_far_away(locations):
 
 
 
-def filter_out_exceeding_distance():
-    pass
+def filter_out_exceeding_distance(locations, value):
+    filtered_locations = [duration for duration in sorted_data if duration['distance'] < value]
+    return filtered_locations
 
 
 
-def filter_out_exceeding_duration():
-    pass
+def filter_out_exceeding_duration(duration, value):
+    filtered_locations = [duration for duration in sorted_data if duration['duration'] < value]
+    return filtered_locations
 
+    
 
-def sort_based_on_weights(weight_price, weight_distance, weight_time, locations):
+def filter_sort_based_on_weights(weight_price, weight_distance, weight_time, locations):
     max_price = max(location['price'] for location in locations)
     min_price = min(location['price'] for location in locations)
     max_distance = max(location['distance'] for location in locations)
